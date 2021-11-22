@@ -34,12 +34,10 @@ app.use(errorHandlerMiddleware);
 const start = async () => {
     if (!('JWT_SECRET' in process.env))
         throw new Error('Please set JWT_SECRET in .env');
+    if (!('MONGO_URI' in process.env))
+        throw new Error('Please set MONGO_URI in .env');
     try {
-        if ('MONGO_URI' in process.env) {
-            await connectDB(process.env.MONGO_URI);
-        } else {
-            throw new Error('Please set MONGO_URI in .env');
-        }
+        await connectDB(process.env.MONGO_URI);
         app.listen(port, console.log('running...'));
     } catch (error) {
         console.log(error);
