@@ -1,0 +1,14 @@
+[
+    {
+        "name": "product_1"
+    },
+    {
+        "name": "product_2",
+        "flag": true
+    },
+    {
+        "name": "product_3",
+        "rating": 5,
+        "price": 9.99
+    }
+]
