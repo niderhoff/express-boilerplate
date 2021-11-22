@@ -2,6 +2,8 @@ require('dotenv').config();
 require('express-async-errors');
 
 const express = require('express');
+const morgan = require('morgan');
+
 const app = express();
 const port = process.env.NODE_PORT;
 
@@ -20,7 +22,6 @@ app.use(express.json());
 // app.use(express.static("/static"))
 
 // logging
-const morgan = require('morgan');
 app.use(morgan('dev'));
 
 // routes
