@@ -8,12 +8,13 @@ const app = express();
 const port = process.env.NODE_PORT;
 
 const connectDB = require('./db/connect');
-const loginRouter = require('./routes/login');
+const authRouter = require('./routes/auth');
 const productsRouter = require('./routes/products');
 
 // middleware functions
 const notFoundMiddleware = require('./middleware/not-found');
 const errorHandlerMiddleware = require('./middleware/error-handler');
+const authMiddleware = require('./middleware/auth');
 
 // middleware
 app.use(express.json());
@@ -26,8 +27,8 @@ app.use(morgan('dev'));
 
 // routes
 app.get('/', (req, res) => res.send('<a href="/api/v1/product">Go Here</a>'));
-app.use('/login', loginRouter);
-app.use('/api/v1/product', productsRouter);
+app.use('/api/v1/auth', authRouter);
+app.use('/api/v1/product', authMiddleware, productsRouter);
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
 

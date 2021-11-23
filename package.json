@@ -8,7 +8,7 @@
     "dev": "nodemon watch app.js"
   },
   "repository": {
-    "type":"git",
+    "type": "git",
     "url": "git@github.com:niderhoff/express-boilerplate.git"
   },
   "keywords": [],
@@ -23,6 +23,7 @@
     "prettier": "^2.4.1"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
